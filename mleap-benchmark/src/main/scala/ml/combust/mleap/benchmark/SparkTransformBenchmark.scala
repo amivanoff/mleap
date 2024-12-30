@@ -9,7 +9,7 @@ import org.scalameter._
 import org.scalameter.Key._
 
 import java.nio.file.Path
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 import scala.util.Using
 
 /**

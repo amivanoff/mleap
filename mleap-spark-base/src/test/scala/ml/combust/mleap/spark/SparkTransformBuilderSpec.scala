@@ -10,7 +10,7 @@ import ml.combust.mleap.core.types.{NodeShape, ScalarType, StructField}
 import ml.combust.mleap.runtime.frame.{FrameBuilder, Transformer}
 import org.scalatest.funspec.AnyFunSpec
 
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 import scala.util.Try
 
 /**

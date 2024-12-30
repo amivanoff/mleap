@@ -3,7 +3,7 @@ package ml.combust.mleap.runtime.javadsl
 import ml.combust.mleap.core.types.{StructField, StructType}
 import ml.combust.mleap.runtime.frame.{DefaultLeapFrame, Row}
 
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 class LeapFrameSupport {
 

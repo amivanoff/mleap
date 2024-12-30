@@ -8,7 +8,7 @@ import akka.actor.ActorSystem
 import com.typesafe.config.Config
 import ml.combust.mleap.executor.error.BundleException
 
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 import scala.concurrent.{Await, Future, Promise}
 import scala.concurrent.duration._
 import scala.util.Try

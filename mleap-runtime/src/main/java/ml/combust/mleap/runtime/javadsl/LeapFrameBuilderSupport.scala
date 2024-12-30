@@ -4,7 +4,7 @@ import ml.combust.mleap.core.types.{BasicType, StructType}
 import ml.combust.mleap.core.util.VectorConverters
 import ml.combust.mleap.runtime.frame.ArrayRow
 
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 import scala.collection.mutable
 import org.apache.spark.ml.linalg.Vector
 import ml.combust.mleap.json.JsonSupport._

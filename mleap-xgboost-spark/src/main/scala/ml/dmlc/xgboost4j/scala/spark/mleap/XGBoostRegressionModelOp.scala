@@ -28,7 +28,7 @@ class XGBoostRegressionModelOp extends SimpleSparkOp[XGBoostRegressionModel] {
 
       Files.write(context.file("xgboost.model"), obj._booster.toByteArray)
 
-      val numFeatures = context.context.dataset.get.select(obj.getFeaturesCol).first.getAs[Vector](0).size
+      val numFeatures = context.context.dataset.get.select(obj.getFeaturesCol).first().getAs[Vector](0).size
       model.withValue("num_features", Value.int(numFeatures)).
         withValue("tree_limit", Value.int(obj.getOrDefault(obj.treeLimit))).
         withValue("missing", Value.float(obj.getOrDefault(obj.missing))).

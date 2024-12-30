@@ -10,7 +10,7 @@ import org.apache.spark.ml.linalg.{Vector, Vectors}
 import scala.collection.mutable
 
 object FeatureHasherModel {
-  val seed = HashingTermFrequencyModel.seed
+  val seed: Int = HashingTermFrequencyModel.seed
 
   def murmur3(term: Any): Int = {
     term match {

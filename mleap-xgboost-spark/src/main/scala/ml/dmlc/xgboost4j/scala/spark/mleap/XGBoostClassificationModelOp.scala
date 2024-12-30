@@ -32,7 +32,7 @@ class XGBoostClassificationModelOp extends SimpleSparkOp[XGBoostClassificationMo
 
       val out = Files.newOutputStream(context.file("xgboost.model"))
       obj._booster.saveModel(out)
-      val numFeatures = context.context.dataset.get.select(obj.getFeaturesCol).first.getAs[Vector](0).size
+      val numFeatures = context.context.dataset.get.select(obj.getFeaturesCol).first().getAs[Vector](0).size
       model.withValue("thresholds", thresholds.map(_.toSeq).map(Value.doubleList)).
         withValue("num_classes", Value.int(obj.numClasses)).
         withValue("num_features", Value.int(numFeatures)).

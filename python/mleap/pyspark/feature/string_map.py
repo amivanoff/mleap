@@ -39,7 +39,7 @@ class StringMap(JavaTransformer, HasInputCol, HasOutputCol, JavaMLReadable, Java
         labels_scala_map = _jvm() \
             .scala \
             .collection \
-            .JavaConverters \
+            .CollectionConverters \
             .mapAsScalaMapConverter(labels) \
             .asScala() \
             .toMap(_jvm().scala.Predef.conforms())

@@ -1,7 +1,7 @@
 package ml.combust.mleap.core.types
 
 import java.io.PrintStream
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 import scala.util.{Failure, Success, Try}
 

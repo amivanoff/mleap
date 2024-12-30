@@ -8,7 +8,7 @@ import ml.combust.mleap.core.util.VectorConverters._
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.types._
 
-import scala.collection.mutable
+import scala.collection.{mutable, immutable}
 import scala.language.implicitConversions
 import scala.util.Try
 
@@ -74,10 +74,10 @@ trait TypeConverters {
         val size = getVectorSize(dataset, field)
         types.TensorType.Double(size)
       case _: MatrixUDT =>
-        val m = dataset.select(field.name).head.getAs[Matrix](0)
+        val m = dataset.select(field.name).head().getAs[Matrix](0)
         types.TensorType.Double(m.numRows, m.numCols)
       case ArrayType(elementType, _) if elementType == new VectorUDT =>
-        val a = dataset.select(field.name).head.getAs[mutable.WrappedArray[Vector]](0)
+        val a = dataset.select(field.name).head().getAs[mutable.WrappedArray[Vector]](0)
         types.TensorType.Double(a.length, a.head.size)
       case _ => throw new UnsupportedOperationException(s"Cannot convert spark field $field to mleap")
     }
@@ -197,7 +197,7 @@ trait TypeConverters {
       val size = getVectorSize(dataset, field)
       types.TensorShape(Some(Seq(size)), field.nullable)
     case mu: MatrixUDT =>
-      val m = dataset.select(field.name).head.getAs[Matrix](0)
+      val m = dataset.select(field.name).head().getAs[Matrix](0)
       types.TensorShape(Some(Seq(m.numRows, m.numCols)), field.nullable)
     case _ => throw new IllegalArgumentException(s"invalid struct field for shape: $field")
   }

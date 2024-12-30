@@ -1,7 +1,7 @@
 package ml.combust.mleap.runtime.javadsl
 
 import ml.combust.mleap.tensor.Tensor
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 class TensorSupport {
 

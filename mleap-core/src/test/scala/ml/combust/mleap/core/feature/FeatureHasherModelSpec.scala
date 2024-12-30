@@ -5,7 +5,7 @@ import org.scalatest.funspec.AnyFunSpec
 
 class FeatureHasherModelSpec  extends org.scalatest.funspec.AnyFunSpec {
 
-  val schema = Seq(
+  val schema: Seq[StructField] = Seq(
     StructField("doubleCol", DataType(BasicType.Double, ScalarShape())),
     StructField("boolCol", DataType(BasicType.Boolean, ScalarShape())),
     StructField("intCol", DataType(BasicType.Int, ScalarShape())),

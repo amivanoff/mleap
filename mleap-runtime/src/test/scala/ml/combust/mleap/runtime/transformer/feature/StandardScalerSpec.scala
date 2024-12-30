@@ -42,8 +42,8 @@ class StandardScalerSpec extends org.scalatest.funspec.AnyFunSpec {
         bf.loadMleapBundle().get.root
       }.get.asInstanceOf[StandardScaler]
 
-      assert(transformer.model.std sameElements scaler.model.std)
-      assert(transformer.model.mean sameElements scaler.model.mean)
+      assert(transformer.model.std.iterator sameElements scaler.model.std.iterator)
+      assert(transformer.model.mean.iterator sameElements scaler.model.mean.iterator)
     }
   }
 }

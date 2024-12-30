@@ -4,7 +4,7 @@ import ml.combust.mleap.runtime.frame.Row.RowSelector
 import ml.combust.mleap.runtime.function.UserDefinedFunction
 import ml.combust.mleap.tensor.{ByteString, Tensor}
 
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 /** Companion object for creating default rows.
   */

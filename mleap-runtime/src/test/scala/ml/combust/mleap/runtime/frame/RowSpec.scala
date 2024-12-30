@@ -166,7 +166,7 @@ trait RowSpec[R <: Row] extends org.scalatest.funspec.AnyFunSpec {
       describe("user defined function") {
         it("adds a value using a user defined function") {
           val r2 = row.withValue(r => r.get(1), r => r.get(2)) {
-            (v1: Int, v2: Seq[Int]) => v1 + v2(0)
+            (v1: Int, v2: Seq[Int]) => v1 + v2.head
           }
 
           assert(r2.getInt(6) == 98)

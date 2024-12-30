@@ -43,7 +43,7 @@ class OneVsRestOp extends SimpleSparkOp[OneVsRestModel] {
       val labelMetadata = NominalAttribute.defaultAttr.
         withName("prediction").
         withNumValues(models.length).
-        toMetadata
+        toMetadata()
       new OneVsRestModel(uid = "", models = models, labelMetadata = labelMetadata)
     }
   }
@@ -52,7 +52,7 @@ class OneVsRestOp extends SimpleSparkOp[OneVsRestModel] {
     val labelMetadata = NominalAttribute.defaultAttr.
       withName(shape.output("prediction").name).
       withNumValues(model.models.length).
-      toMetadata
+      toMetadata()
     new OneVsRestModel(uid = uid, models = model.models, labelMetadata = labelMetadata)
   }
 

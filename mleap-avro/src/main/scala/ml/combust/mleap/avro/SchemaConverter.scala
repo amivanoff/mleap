@@ -9,7 +9,7 @@ import ml.combust.mleap.tensor.{ByteString, Tensor}
 import org.apache.avro.Schema
 
 import scala.language.implicitConversions
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 import scala.reflect.{ClassTag, classTag}
 import scala.util.Try
 

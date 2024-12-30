@@ -19,7 +19,7 @@ import java.io.{ByteArrayOutputStream, File}
 import java.net.URI
 import java.nio.file.{Files, Paths}
 import java.util.zip.ZipOutputStream
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 import scala.util.{Success, Try, Using}
 
 /**

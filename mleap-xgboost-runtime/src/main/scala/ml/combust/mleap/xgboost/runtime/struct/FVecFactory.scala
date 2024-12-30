@@ -6,7 +6,7 @@ import biz.k11i.xgboost.util.FVec
 import ml.combust.mleap.tensor.{SparseTensor, Tensor}
 import org.apache.spark.ml.linalg.{DenseVector, SparseVector}
 
-import scala.collection.JavaConverters.mapAsJavaMapConverter
+import scala.jdk.CollectionConverters._
 
 
 object FVecFactory {

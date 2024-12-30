@@ -15,7 +15,7 @@ class FeatureHasherSpec extends org.scalatest.funspec.AnyFunSpec {
     "output" -> StructField("features", TensorType.Double(262144))
   )
 
-  val model = FeatureHasherModel(
+  val model: FeatureHasherModel = FeatureHasherModel(
     categoricalCols = Seq.empty[String],
     inputNames = inputSchema.values.map(_.name).toSeq,
     inputTypes = inputSchema.values.map(_.dataType).toSeq
