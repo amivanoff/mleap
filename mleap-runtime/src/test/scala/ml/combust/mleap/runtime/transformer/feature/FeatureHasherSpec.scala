@@ -5,14 +5,14 @@ import ml.combust.mleap.core.types._
 
 class FeatureHasherSpec extends org.scalatest.funspec.AnyFunSpec {
 
-  val inputSchema = Map(
-    "input0" → StructField("doubleCol", DataType(BasicType.Double, ScalarShape())),
-    "input1" → StructField("boolCol", DataType(BasicType.Boolean, ScalarShape())),
-    "input2" → StructField("intCol", DataType(BasicType.Int, ScalarShape())),
-    "input3" → StructField("stringCol", DataType(BasicType.String, ScalarShape()))
+  val inputSchema: Map[String, StructField] = Map(
+    "input0" -> StructField("doubleCol", DataType(BasicType.Double, ScalarShape())),
+    "input1" -> StructField("boolCol", DataType(BasicType.Boolean, ScalarShape())),
+    "input2" -> StructField("intCol", DataType(BasicType.Int, ScalarShape())),
+    "input3" -> StructField("stringCol", DataType(BasicType.String, ScalarShape()))
   )
-  val outputSchema = Map(
-    "output" → StructField("features", TensorType.Double(262144))
+  val outputSchema: Map[String, StructField] = Map(
+    "output" -> StructField("features", TensorType.Double(262144))
   )
 
   val model = FeatureHasherModel(
@@ -23,7 +23,7 @@ class FeatureHasherSpec extends org.scalatest.funspec.AnyFunSpec {
 
   describe("input/output schema") {
 
-    val shape = inputSchema.foldLeft(NodeShape()) { (acc, item) ⇒
+    val shape = inputSchema.foldLeft(NodeShape()) { (acc, item) =>
       acc.withInput(item._1, item._2.name)
     }.withOutput(outputSchema.head._1, outputSchema.head._2.name)
 

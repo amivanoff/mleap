@@ -19,7 +19,7 @@ trait RowSpec[R <: Row] extends org.scalatest.funspec.AnyFunSpec {
       42,
       45.4,
       Tensor.denseVector(Array(42.3, 65.7)),
-      33l,
+      33L,
       Seq(56, 78, 23))
     val optionRow = create(optionRowValues: _*)
 
@@ -96,7 +96,7 @@ trait RowSpec[R <: Row] extends org.scalatest.funspec.AnyFunSpec {
 
     describe("#optionLong") {
       it("gets the value at a given index as a long") {
-        assert(optionRow.optionLong(5) == Option(33l))
+        assert(optionRow.optionLong(5) == Option(33L))
       }
     }
 
