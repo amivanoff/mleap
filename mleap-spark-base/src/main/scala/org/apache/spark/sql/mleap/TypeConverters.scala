@@ -40,6 +40,12 @@ trait TypeConverters {
         val s = t.head.size
         val values = t.flatMap(_.toArray).toArray
         DenseTensor(values, Seq(t.size, s))
+    case at: ArrayType =>
+      (v: Any) => v match {
+          case vArr1: mutable.WrappedArray[?] => vArr1.toSeq
+          case vArr2: Array[?] => vArr2.toSeq
+          case vNonArr => vNonArr
+        }
     case _ => (v) => v
   }
 

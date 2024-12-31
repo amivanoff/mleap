@@ -88,7 +88,7 @@ trait CachedDatasetUtils {
         array(labelColumnIndex) = row.getDouble(labelColumnIndex)
         array(featureColumnIndex) = row.getTensor[Double](featureColumnIndex).toDense
 
-        ArrayRow(array)
+        ArrayRow(array.toSeq)
       }
     }
 

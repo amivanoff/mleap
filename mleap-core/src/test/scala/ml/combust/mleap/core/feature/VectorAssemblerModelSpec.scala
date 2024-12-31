@@ -10,7 +10,7 @@ import org.scalatest.funspec.AnyFunSpec
   * Created by hwilkins on 1/21/16.
   */
 class VectorAssemblerModelSpec extends org.scalatest.funspec.AnyFunSpec {
-  val assembler = VectorAssemblerModel(Seq(
+  val assembler: VectorAssemblerModel = VectorAssemblerModel(Seq(
     ScalarShape(), ScalarShape(),
     TensorShape(2),
     TensorShape(5)))
@@ -22,7 +22,7 @@ class VectorAssemblerModelSpec extends org.scalatest.funspec.AnyFunSpec {
       assert(assembler(Array(45.0,
         new BigDecimal(76.8),
         Vectors.dense(Array(23.0, 45.6)),
-        Vectors.sparse(5, Array(1, 2, 4), Array(22.3, 45.6, 99.3)))).toArray.sameElements(expectedArray))
+        Vectors.sparse(5, Array(1, 2, 4), Array(22.3, 45.6, 99.3))).toSeq).toArray.sameElements(expectedArray))
     }
   }
 
