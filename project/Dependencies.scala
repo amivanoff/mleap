@@ -17,9 +17,9 @@ object Dependencies {
   lazy val loggingVersion = "3.9.5"
   lazy val slf4jVersion = "2.0.6"
   lazy val awsSdkVersion = "1.12.470"
-  lazy val scalaCollectionCompat = "2.8.1"
+  lazy val scalaCollectionCompat = "2.12.0"
   val tensorflowJavaVersion = "0.5.0" // Match Tensorflow 2.10.1 https://github.com/tensorflow/java/#tensorflow-version-support
-  val xgboostVersion = "1.7.6"
+  val xgboostVersion = "2.0.3"
   val breezeVersion = "2.1.0"
   val hadoopVersion = "3.3.4" // matches spark version
   val platforms = "windows-x86_64,linux-x86_64,macosx-x86_64"
@@ -80,8 +80,8 @@ object Dependencies {
 
     val breeze = "org.scalanlp" %% "breeze" % breezeVersion
 
-    val xgboostDep = "ml.dmlc" %% "xgboost4j" % xgboostVersion
-    val xgboostSparkDep = "ml.dmlc" %% "xgboost4j-spark" % xgboostVersion
+    val xgboostDep = "ml.dmlc" %% "xgboost4j" % xgboostVersion exclude("org.scala-lang.modules", "scala-collection-compat_2.12")
+    val xgboostSparkDep = "ml.dmlc" %% "xgboost4j-spark" % xgboostVersion exclude("org.scala-lang.modules", "scala-collection-compat_2.12") exclude("ml.dmlc", "xgboost4j_2.12")
     val xgboostPredictorDep = "ai.h2o" % "xgboost-predictor" % "0.3.18" exclude("com.esotericsoftware.kryo", "kryo")
 
     val hadoop = "org.apache.hadoop" % "hadoop-client" % hadoopVersion
@@ -136,7 +136,7 @@ object Dependencies {
 
   val xgboostRuntime = l ++= Seq(xgboostDep) ++ Seq(xgboostPredictorDep) ++ Test.spark ++ Test.sparkTest ++ Seq(Test.scalaTest)
 
-  val xgboostSpark = l ++= Seq(xgboostSparkDep) ++ Provided.spark ++ Test.spark ++ Test.sparkTest
+  val xgboostSpark = l ++= Seq(xgboostDep) ++ Seq(xgboostSparkDep) ++ Provided.spark ++ Test.spark ++ Test.sparkTest
 
   val serving = l ++= Seq(akkaHttp, akkaHttpSprayJson, config, Test.scalaTest, Test.akkaHttpTestkit)
 
